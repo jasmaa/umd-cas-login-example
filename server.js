@@ -9,9 +9,9 @@ app.get('/login', (req, res) => {
 
     if (req.query.ticket) {
         axios.get(`https://shib.idm.umd.edu/shibboleth-idp/profile/cas/serviceValidate?ticket=${req.query.ticket}&service=${BASE_URL}`)
-            .then((response => {
+            .then(response => {
                 res.send(response.data); // Process directory id here
-            }))
+            })
             .catch(error => {
                 res.send(error);
             });
