@@ -3,7 +3,7 @@ const axios = require('axios');
 
 const app = express();
 
-const BASE_URL = 'https://example.com'; // Your app's url
+const BASE_URL = 'http://localhost:3000'; // Your app's url
 
 app.get('/login', (req, res) => {
 
@@ -19,6 +19,10 @@ app.get('/login', (req, res) => {
     else {
         res.redirect(`https://shib.idm.umd.edu/shibboleth-idp/profile/cas/login?service=${BASE_URL}/login`);
     }
+});
+
+app.get('/logout', (req, res) => {
+    res.redirect(`https://shib.idm.umd.edu/shibboleth-idp/profile/cas/logout`);
 });
 
 app.listen(3000, () => console.log('Starting server on 3000...'));
